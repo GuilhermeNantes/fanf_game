@@ -26,5 +26,11 @@ class UsuarioModel {
         $stmt->execute();
         return $stmt->fetchColumn() > 0;
     }
-    
+    public function verificarLogin($username) {
+        $sql = 'SELECT * FROM usuarios WHERE username = :username';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
