@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <link rel="stylesheet" href="/host-gui/fanf_game/public/css/register.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Registro</title>
 </head>
 <body>
-    <h1>Cadastro de Usuário</h1>
-    <form action="index.php?rota=register" method="POST">
-    <label for="username">Nome de Usuário:</label>
-    <input type="text" id="username" name="username" required>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>cadastro de Usuario</h2>
+            <form method="POST" action="">
+                <div class="input-group">
+                    <input type="text" name="username" required>
+                    <label for="username">Nome do Usuário</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" required>
+                    <label for="password">Nome do Senha</label>
+                </div>
 
-    <label for="password">Senha:</label>
-    <input type="password" id="password" name="password" required>
+                <button type="submit" class="login-btn">Entrar</button>
 
-    <button type="submit">Cadastrar</button>
-</form>
+                <!-- Link para registrar-se -->
+                <p class="register-text">
+                 Você tem uma conta? <a href="index.php?rota=login">login</a>
+                </p>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
