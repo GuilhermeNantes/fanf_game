@@ -10,7 +10,7 @@
 <body>
     <div class="login-container">
         <div class="login-box">
-            <h2>cadastro de Usuario</h2>
+            <h2>cadastro</h2>
             <form method="POST" action="">
                 <div class="input-group">
                     <input type="text" name="username" required>
