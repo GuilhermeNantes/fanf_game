@@ -16,6 +16,14 @@ if ($rota === 'usuarios') {
 } elseif ($rota === 'aviso') {
     $controller = new AvisoController();
     $controller->exibirAviso();
+} elseif ($rota === 'editar') {
+    $id = $controller->id ?? null;
+    $controller = new UsuarioController();
+    $controller->editar();
+} elseif ($rota === 'deletar') {
+    $id = $controller->id ?? null;
+    $controller = new UsuarioController();
+    $controller->deletar();
 } elseif ($rota === 'menu') {
     // Verifica se o usuário já viu o aviso antes de entrar no menu
     if (!isset($_SESSION['viu_aviso'])) {

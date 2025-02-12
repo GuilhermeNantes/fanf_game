@@ -3,39 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/host-gui/fanf_game/public/css/login.css">
+    <link rel="stylesheet" href="/host-gui/fanf_game/public/css/register.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Login</title>
+    <title>Registro</title>
 </head>
 <body>
     <div class="login-container">
         <div class="login-box">
-            <h2>Login</h2>
+            <h2>editar</h2>
             <form method="POST" action="">
                 <div class="input-group">
                     <input type="text" name="username" required>
-                    <label for="username">Usuário</label>
+                    <label for="username">Editar Usuário</label>
                 </div>
                 <div class="input-group">
                     <input type="password" name="password" required>
-                    <label for="password">Senha</label>
-                </div>
-
-                <!-- Lembre-se de mim -->
-                <div class="remember-me">
-                    <input type="checkbox" id="remember" name="remember">
-                    <label for="remember">Lembre-se de mim</label>
+                    <label for="password">Editar Senha</label>
                 </div>
 
                 <button type="submit" class="login-btn">Entrar</button>
 
                 <!-- Link para registrar-se -->
                 <p class="register-text">
-                    Não tem uma conta? <a href="register">Registre-se</a>
+                 Você tem uma conta? <a href="login">login</a>
                 </p>
             </form>
         </div>
     </div>
-    <script src="/host-gui/fanf_game/public/js/msgRemover.js"></script>
 </body>
 </html>
+
+       

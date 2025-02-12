@@ -25,7 +25,7 @@
 
                 <!-- Link para registrar-se -->
                 <p class="register-text">
-                 Você tem uma conta? <a href="index.php?rota=login">login</a>
+                 Você tem uma conta? <a href="login">login</a>
                 </p>
             </form>
         </div>
