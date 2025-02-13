@@ -126,6 +126,6 @@ td {
 
 /* Estilo para mensagem de sucesso */
 .success-message {
-    background-color: rgba(40, 167, 69, 0.8); /* Fundo verde com transparência */
-    border-color: #28a745;
+    background-color: rgba(40, 167, 69, 0.7); /* Fundo verde com transparência */
+    border-color:rgba(40, 167, 70, 0.71);
 }

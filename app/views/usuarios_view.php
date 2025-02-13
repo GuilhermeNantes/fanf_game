@@ -9,6 +9,13 @@
 <body>
     <div class="table-container">
         <h1>Lista de Usuários</h1>
+
+        <!-- Exibe a mensagem de sucesso ou erro, se houver -->
+        <?php if (isset($_SESSION['message'])): ?>
+            <p class="message message-background success-message"><?php echo $_SESSION['message']; ?></p>
+            <?php unset($_SESSION['message']); ?>  <!-- Limpa a mensagem da sessão após exibi-la -->
+        <?php endif; ?>
+
         <table>
             <thead>
                 <tr>
@@ -47,5 +54,6 @@
             </tbody>
         </table>
     </div>
+    <script src="/host-gui/fanf_game/public/js/msgRemover.js" defer></script>
 </body>
 </html>

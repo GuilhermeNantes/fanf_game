@@ -62,20 +62,48 @@ class UsuarioController {
     }
     public function editar() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id = $_POST['id'];
-            $username = trim($_POST['username']);
-            $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
+            $id = $_POST['id'] ?? null;
+            $username = trim($_POST['username'] ?? '');
+            $password = trim($_POST['password'] ?? '');
+    
+            if (!$id) {
+                $_SESSION['message'] = "Erro: ID do usuário não encontrado!";
+                header("Location: /host-gui/fanf_game/public/index.php?rota=usuarios");
+                exit;
+            }
     
             $model = new UsuarioModel($GLOBALS['pdo']);
-            if ($model->atualizarUsuario($id, $username, $password)) {
-                echo "<p class='message message-background success-message'>Usuário atualizado com sucesso!</p>";
+    
+            // Atualiza o usuário com os novos dados
+            $senhaCriptografada = !empty($password) ? password_hash($password, PASSWORD_DEFAULT) : null;
+    
+            if ($model->atualizarUsuario($id, $username, $senhaCriptografada)) {
+                $_SESSION['message'] = "Usuário {$username} atualizado com sucesso!";
             } else {
-                echo "<p class='message message-background error-message'>Erro ao atualizar usuário.</p>";
+                $_SESSION['message'] = "Erro ao atualizar usuário.";
+            }
+            
+            // Redireciona para a lista de usuários
+            header("Location: /host-gui/fanf_game/public/index.php?rota=usuarios");
+            exit;  // Certifique-se de chamar o exit para parar a execução do código
+        } else {
+            $id = $_GET['id'] ?? null;
+    
+            if ($id) {
+                $model = new UsuarioModel($GLOBALS['pdo']);
+                $usuario = $model->getById($id); // Obtém o usuário a ser editado
+    
+                if ($usuario) {
+                    require __DIR__ . '/../views/editar_view.php'; // Exibe a view de edição
+                } else {
+                    echo "<p class='message message-background error-message'>Usuário não encontrado.</p>";
+                }
+            } else {
+                echo "<p class='message message-background error-message'>ID do usuário não fornecido.</p>";
             }
         }
-    
-        require __DIR__ . '/../views/editar_view.php';
     }
+    
     
     public function deletar() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -92,6 +120,7 @@ class UsuarioController {
                 echo "<p class='message message-background error-message'>Erro ao Deletar usuário.</p>";
             }
         }
+        require __DIR__ . '/../views/usuarios_view.php';
     }
 }    
 ?>

@@ -164,7 +164,6 @@ input:-webkit-autofill:active {
 .remember-me input[type="checkbox"]:checked::after {
     opacity: 1;
 }
-/* Estilo global para as mensagens */
 .message {
     padding: 15px;
     margin-top: 20px;
@@ -178,6 +177,9 @@ input:-webkit-autofill:active {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000; /* Garantir que a mensagem fique no topo */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease-out, visibility 1s ease-out; /* Suaviza a transição */
 }
 
 /* Fundo transparente e cinza escuro */
@@ -185,8 +187,6 @@ input:-webkit-autofill:active {
     background-color: rgba(30, 30, 30, 0.8); /* Cinza escuro com transparência */
     color: white;
     border: 1px solid #444;
-    animation-timing-function: calc();
-    animation-duration: 1s;
 }
 
 /* Estilo para mensagem de erro */
@@ -197,6 +197,12 @@ input:-webkit-autofill:active {
 
 /* Estilo para mensagem de sucesso */
 .success-message {
-    background-color: rgba(40, 167, 69, 0.8); /* Fundo verde com transparência */
-    border-color: #28a745;
+    background-color: rgba(40, 167, 69, 0.7); /* Fundo verde com transparência */
+    border-color:rgba(40, 167, 70, 0.71);
+}
+
+/* Classe para esconder a mensagem */
+.hide {
+    opacity: 0;
+    visibility: hidden;
 }

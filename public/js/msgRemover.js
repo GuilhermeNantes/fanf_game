@@ -1,16 +1,20 @@
-function removerMasagen(){
-    setTimeout(function(){
-        var msgcerto = document.getElementsByClassName('success-message');
-        var msgerrado = document.getElementsByClassName('error-message');
-        msgerrado.parentNode.removeChild(msgerrado);
-        msgcerto.parentNode.removeChild(msgcerto);
-    
-    }, 3000);    
+// Função para esconder a mensagem após 5 segundos
+function hideMessage() {
+    const message = document.querySelector('.message');
+    if (message) {
+        setTimeout(() => {
+            message.classList.add('hide');
+        }, 5000); // Tempo de 5 segundos
+    }
 }
-document.onreadystatechange = () => {
-    
-    if(document.readyState === 'complete')
 
- 
-    removerMasagen()
-}
+// Usando MutationObserver para observar quando a classe '.message' for adicionada ao DOM
+const observer = new MutationObserver(() => {
+    // Verifica se há uma mensagem com a classe .message no DOM
+    if (document.querySelector('.message')) {
+        hideMessage(); // Se houver, chama a função para esconder após 5 segundos
+    }
+});
+
+// Inicia o observador para observar mudanças no DOM
+observer.observe(document.body, { childList: true, subtree: true });
