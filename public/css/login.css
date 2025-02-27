@@ -184,6 +184,7 @@ input:-webkit-autofill:active {
 
 /* Fundo transparente e cinza escuro */
 .message-background {
+    
     background-color: rgba(30, 30, 30, 0.8); /* Cinza escuro com transparência */
     color: white;
     border: 1px solid #444;
