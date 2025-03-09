@@ -109,6 +109,9 @@ td {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000; /* Garantir que a mensagem fique no topo */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease-out, visibility 1s ease-out; /* Suaviza a transição */
 }
 
 /* Fundo transparente e cinza escuro */
@@ -128,4 +131,10 @@ td {
 .success-message {
     background-color: rgba(40, 167, 69, 0.7); /* Fundo verde com transparência */
     border-color:rgba(40, 167, 70, 0.71);
+}
+
+/* Classe para esconder a mensagem */
+.hide {
+    opacity: 0;
+    visibility: hidden;
 }

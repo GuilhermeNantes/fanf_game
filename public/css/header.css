@@ -1,0 +1,169 @@
+/* Variáveis CSS */
+:root {
+    --color-dark: #0c0c0c;
+    --color-dark-secondary: #171717;
+    --color-gray: #a8a29e;
+    --color-light: #f5f5f5;
+    --color-primary: #7a397a;
+    --color-primary-hover: #5a2a5a;
+    --color-gradient: linear-gradient(45deg, #7a397a, #5a2a5a);
+    --font-family: 'Poppins', sans-serif;
+    --transition: all 0.3s ease;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    /* background-image: url(https://img.freepik.com/vetores-gratis/paisagem-noturna-do-oceano-lua-cheia-e-estrelas-brilham_107791-7397.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+    color: var(--color-light);
+    min-height: 100vh;
+}
+
+/* Header Moderno */
+header {
+    width: 100%;
+    background-color: var(--color-dark-secondary);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow);
+}
+
+#header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Logo */
+#header-img img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary);
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+#header-img img:hover {
+    transform: scale(1.1);
+    border-color: var(--color-primary-hover);
+}
+
+/* Menu de Navegação */
+.header-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav li a {
+    text-decoration: none;
+    color: var(--color-light);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.header-nav li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-gradient);
+    transition: var(--transition);
+}
+
+.header-nav li a:hover {
+    color: var(--color-primary);
+}
+
+.header-nav li a:hover::after {
+    width: 100%;
+}
+
+/* Ícone do Usuário */
+#header-user img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary);
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+#header-user img:hover {
+    transform: scale(1.1);
+    border-color: var(--color-primary-hover);
+}
+
+/* Botão de Ação (Opcional) */
+.header-action {
+    background: var(--color-gradient);
+    color: var(--color-light);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.header-action:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    #header-content {
+        padding: 0 1.5rem;
+    }
+
+    .header-nav ul {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #header-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .header-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    #header-img img,
+    #header-user img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .header-action {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}

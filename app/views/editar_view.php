@@ -34,6 +34,5 @@
             </form>
         </div>
     </div>
-    <script src="/host-gui/fanf_game/public/js/msgRemover.js"></script>
 </body>
 </html>
